@@ -42,7 +42,7 @@ class Ui_JD(object):
         self.log_terminal.setGeometry(QtCore.QRect(40, 371, 711, 161))
         self.log_terminal.setObjectName("log_terminal")
         self.LoginBtn = QtWidgets.QPushButton(JD)
-        self.LoginBtn.setGeometry(QtCore.QRect(70, 170, 151, 28))
+        self.LoginBtn.setGeometry(QtCore.QRect(50, 170, 201, 28))
         self.LoginBtn.setObjectName("LoginBtn")
         self.usernameLabel = QtWidgets.QLabel(JD)
         self.usernameLabel.setGeometry(QtCore.QRect(50, 120, 101, 21))
@@ -57,6 +57,9 @@ class Ui_JD(object):
         self.usericonLabel = QtWidgets.QLabel(JD)
         self.usericonLabel.setGeometry(QtCore.QRect(50, 60, 72, 15))
         self.usericonLabel.setObjectName("usericonLabel")
+        self.checklogbtn = QtWidgets.QPushButton(JD)
+        self.checklogbtn.setGeometry(QtCore.QRect(50, 220, 201, 28))
+        self.checklogbtn.setObjectName("checklogbtn")
 
         self.retranslateUi(JD)
         QtCore.QMetaObject.connectSlotsByName(JD)
@@ -68,3 +71,4 @@ class Ui_JD(object):
         self.LoginBtn.setText(_translate("JD", "扫码登录"))
         self.usernameLabel.setText(_translate("JD", "用户名："))
         self.usericonLabel.setText(_translate("JD", "头像："))
+        self.checklogbtn.setText(_translate("JD", "我已扫码，检查是否登陆"))
