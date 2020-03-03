@@ -2030,3 +2030,179 @@
 2020-03-03  14:58:48 Tue selenium.webdriver.remote.remote_connection DEBUG DELETE http://127.0.0.1:59291/session/72f1a63f-5cde-42a1-829e-b1149788b5e2 {}
 2020-03-03  14:58:50 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59291 "DELETE /session/72f1a63f-5cde-42a1-829e-b1149788b5e2 HTTP/1.1" 200 14
 2020-03-03  14:58:50 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:37 Tue log.conf INFO FireFox内核运行中...
+2020-03-03  15:09:37 Tue log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:50: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-03  15:09:41 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59999/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-03  15:09:41 Tue urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:59999
+2020-03-03  15:09:43 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "POST /session HTTP/1.1" 200 737
+2020-03-03  15:09:43 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:43 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "POST /session/6dd1f278-e6e0-4a06-9496-24db39254544/url HTTP/1.1" 200 14
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:46 Tue log.conf INFO 京东-欢迎登录
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/url {}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "GET /session/6dd1f278-e6e0-4a06-9496-24db39254544/url HTTP/1.1" 200 44
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/element {"using": "css selector", "value": ".qrcode-img"}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "POST /session/6dd1f278-e6e0-4a06-9496-24db39254544/element HTTP/1.1" 200 88
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:46 Tue log.conf INFO 二维码跳转中...
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/element/59588878-d211-471e-93e8-83bb92b4be66/screenshot {"id": "59588878-d211-471e-93e8-83bb92b4be66"}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "GET /session/6dd1f278-e6e0-4a06-9496-24db39254544/element/59588878-d211-471e-93e8-83bb92b4be66/screenshot HTTP/1.1" 200 2720
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:46 Tue PIL.PngImagePlugin DEBUG STREAM b'IHDR' 16 13
+2020-03-03  15:09:46 Tue PIL.PngImagePlugin DEBUG STREAM b'IDAT' 41 1973
+2020-03-03  15:09:46 Tue log.conf INFO 请扫描二维码
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/url {}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "GET /session/6dd1f278-e6e0-4a06-9496-24db39254544/url HTTP/1.1" 200 44
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:09:46 Tue log.conf INFO 请注意：二维码未扫描！请扫二维码登录
+2020-03-03  15:09:46 Tue log.conf INFO 登录成功！！！
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:59999/session/6dd1f278-e6e0-4a06-9496-24db39254544/cookie {}
+2020-03-03  15:09:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:59999 "GET /session/6dd1f278-e6e0-4a06-9496-24db39254544/cookie HTTP/1.1" 200 1322
+2020-03-03  15:09:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:25 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:18:27 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:18:34 Tue log.conf INFO FireFox内核运行中...
+2020-03-03  15:18:34 Tue log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:50: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-03  15:18:37 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:53460/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-03  15:18:37 Tue urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:53460
+2020-03-03  15:18:40 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "POST /session HTTP/1.1" 200 737
+2020-03-03  15:18:40 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:40 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "POST /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 14
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:42 Tue log.conf INFO 京东-欢迎登录
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 44
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/element {"using": "css selector", "value": ".qrcode-img"}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "POST /session/cee65a95-4676-4d22-a635-97227ef6eb51/element HTTP/1.1" 200 88
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:42 Tue log.conf INFO 二维码跳转中...
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/element/ec0ac5bc-2dc7-4fd1-badf-b03efe132429/screenshot {"id": "ec0ac5bc-2dc7-4fd1-badf-b03efe132429"}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/element/ec0ac5bc-2dc7-4fd1-badf-b03efe132429/screenshot HTTP/1.1" 200 2624
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:42 Tue PIL.PngImagePlugin DEBUG STREAM b'IHDR' 16 13
+2020-03-03  15:18:42 Tue PIL.PngImagePlugin DEBUG STREAM b'IDAT' 41 1900
+2020-03-03  15:18:42 Tue log.conf INFO 请扫描二维码
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 44
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:18:42 Tue log.conf INFO 请注意：二维码未扫描！请扫二维码登录
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie {}
+2020-03-03  15:18:42 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie HTTP/1.1" 200 1325
+2020-03-03  15:18:42 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:03 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {}
+2020-03-03  15:19:03 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 31
+2020-03-03  15:19:03 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:03 Tue log.conf INFO 登录成功！！！
+2020-03-03  15:19:03 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie {}
+2020-03-03  15:19:03 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie HTTP/1.1" 200 3097
+2020-03-03  15:19:03 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:52 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {}
+2020-03-03  15:19:52 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 31
+2020-03-03  15:19:52 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:52 Tue log.conf INFO 登录成功！！！
+2020-03-03  15:19:52 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie {}
+2020-03-03  15:19:52 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie HTTP/1.1" 200 3097
+2020-03-03  15:19:52 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:55 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/url {}
+2020-03-03  15:19:55 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/url HTTP/1.1" 200 31
+2020-03-03  15:19:55 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:19:55 Tue log.conf INFO 登录成功！！！
+2020-03-03  15:19:55 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:53460/session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie {}
+2020-03-03  15:19:55 Tue urllib3.connectionpool DEBUG http://127.0.0.1:53460 "GET /session/cee65a95-4676-4d22-a635-97227ef6eb51/cookie HTTP/1.1" 200 3097
+2020-03-03  15:19:55 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  15:45:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:11 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:12 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:13 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:13 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:13 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:13 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:13 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  15:46:14 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  16:10:22 Tue log.conf INFO 未检测到登录信息，请重试！！！
+2020-03-03  16:14:11 Tue log.conf INFO FireFox内核运行中...
+2020-03-03  16:14:11 Tue log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:52: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-03  16:14:14 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:56785/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-03  16:14:14 Tue urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:56785
+2020-03-03  16:14:16 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "POST /session HTTP/1.1" 200 737
+2020-03-03  16:14:16 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:16 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-03  16:14:18 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "POST /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url HTTP/1.1" 200 14
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:18 Tue log.conf INFO 京东-欢迎登录
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url {}
+2020-03-03  16:14:18 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "GET /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url HTTP/1.1" 200 44
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/element {"using": "css selector", "value": ".qrcode-img"}
+2020-03-03  16:14:18 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "POST /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/element HTTP/1.1" 200 88
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:18 Tue log.conf INFO 二维码跳转中...
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/element/1d77a925-5151-43aa-b12d-de297e2ce624/screenshot {"id": "1d77a925-5151-43aa-b12d-de297e2ce624"}
+2020-03-03  16:14:18 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "GET /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/element/1d77a925-5151-43aa-b12d-de297e2ce624/screenshot HTTP/1.1" 200 2620
+2020-03-03  16:14:18 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:18 Tue PIL.PngImagePlugin DEBUG STREAM b'IHDR' 16 13
+2020-03-03  16:14:18 Tue PIL.PngImagePlugin DEBUG STREAM b'IDAT' 41 1899
+2020-03-03  16:14:19 Tue log.conf INFO 请扫描二维码
+2020-03-03  16:14:19 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url {}
+2020-03-03  16:14:19 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "GET /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/url HTTP/1.1" 200 44
+2020-03-03  16:14:19 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:14:19 Tue log.conf INFO 请注意：二维码未扫描！请扫二维码登录
+2020-03-03  16:14:19 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:56785/session/1503972f-c3e0-41ff-9f78-63f394dcf3be/cookie {}
+2020-03-03  16:14:19 Tue urllib3.connectionpool DEBUG http://127.0.0.1:56785 "GET /session/1503972f-c3e0-41ff-9f78-63f394dcf3be/cookie HTTP/1.1" 200 1319
+2020-03-03  16:14:19 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:40 Tue log.conf INFO FireFox内核运行中...
+2020-03-03  16:17:40 Tue log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:52: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-03  16:17:43 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:57475/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-03  16:17:43 Tue urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:57475
+2020-03-03  16:17:46 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "POST /session HTTP/1.1" 200 737
+2020-03-03  16:17:46 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:46 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-03  16:17:48 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "POST /session/26d240f8-09b8-4605-9b6a-857fb503f806/url HTTP/1.1" 200 14
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:48 Tue log.conf INFO 京东-欢迎登录
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/url {}
+2020-03-03  16:17:48 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "GET /session/26d240f8-09b8-4605-9b6a-857fb503f806/url HTTP/1.1" 200 44
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/element {"using": "css selector", "value": ".qrcode-img"}
+2020-03-03  16:17:48 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "POST /session/26d240f8-09b8-4605-9b6a-857fb503f806/element HTTP/1.1" 200 88
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:48 Tue log.conf INFO 二维码跳转中...
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/element/2e0768de-49f5-407c-bff6-6de6e5f8ec0b/screenshot {"id": "2e0768de-49f5-407c-bff6-6de6e5f8ec0b"}
+2020-03-03  16:17:48 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "GET /session/26d240f8-09b8-4605-9b6a-857fb503f806/element/2e0768de-49f5-407c-bff6-6de6e5f8ec0b/screenshot HTTP/1.1" 200 2672
+2020-03-03  16:17:48 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:48 Tue PIL.PngImagePlugin DEBUG STREAM b'IHDR' 16 13
+2020-03-03  16:17:48 Tue PIL.PngImagePlugin DEBUG STREAM b'IDAT' 41 1936
+2020-03-03  16:17:49 Tue log.conf INFO 请扫描二维码
+2020-03-03  16:17:49 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/url {}
+2020-03-03  16:17:49 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "GET /session/26d240f8-09b8-4605-9b6a-857fb503f806/url HTTP/1.1" 200 44
+2020-03-03  16:17:49 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:17:49 Tue log.conf INFO 请注意：二维码未扫描！请扫二维码登录
+2020-03-03  16:17:49 Tue selenium.webdriver.remote.remote_connection DEBUG GET http://127.0.0.1:57475/session/26d240f8-09b8-4605-9b6a-857fb503f806/cookie {}
+2020-03-03  16:17:49 Tue urllib3.connectionpool DEBUG http://127.0.0.1:57475 "GET /session/26d240f8-09b8-4605-9b6a-857fb503f806/cookie HTTP/1.1" 200 1322
+2020-03-03  16:17:49 Tue selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-03  16:22:58 Tue log.conf INFO 未检测到登录信息，请重试！！！

@@ -94,14 +94,13 @@ class JD_ui(QWidget,Ui_JD):
 
     def connecter(self):
         self.LoginBtn.clicked.connect(self.QRlogin)
+        self.checklogbtn.clicked.connect(self.checklog)
+        self.showQRbtn.clicked.connect(self.showQRcode)
 
-    def w1(self):
-        self.outputWritten('12312312313\n')
-
+    def showQRcode(self):
+        os.system('start ./qr/show.png')
 
     def QRlogin(self):
-
-
         # 接管已打开浏览器
         # chrome_options = Options()
         # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
@@ -111,10 +110,10 @@ class JD_ui(QWidget,Ui_JD):
         self.outputWritten('FireFox内核运行中...')
 
         # 无头浏览器模式
-        driver = headless_firefox('https://passport.jd.com/uc/login')
+        self.driver = headless_firefox('https://passport.jd.com/uc/login')
         self.outputWritten('京东-欢迎登录')
-        log_url = driver.current_url
-        img = driver.find_element_by_class_name('qrcode-img')
+        log_url = self.driver.current_url
+        img = self.driver.find_element_by_class_name('qrcode-img')
         self.outputWritten('二维码跳转中...')
 
         # 保存二维码
@@ -126,21 +125,30 @@ class JD_ui(QWidget,Ui_JD):
         # 打开保存的二维码
         os.system('start ./qr/show.png')
         self.outputWritten('请扫描二维码')
-        cur_url = driver.current_url
+        self.checklog()
 
-        if cur_url == log_url:
-            self.outputWritten('请注意：二维码未扫描！请扫二维码登录')
 
-        self.outputWritten('登录成功！！！')
+    # 检测是否登录
+    def checklog(self):
+        try:
+            cur_url = self.driver.current_url
+            if cur_url == log_url:
+                self.outputWritten('请注意：二维码未扫描！请扫二维码登录')
+            else:
+                self.outputWritten('登录成功！！！')
+        except BaseException:
+            self.outputWritten('未检测到登录信息，请重试！！！')
+        else:
+            # 保存登录cookies
+            cookies = self.driver.get_cookies()
+            jsonCookies = json.dumps(cookies)
 
-        # 保存登录cookies
-        cookies = driver.get_cookies()
-        jsonCookies = json.dumps(cookies)
+            # 存于本地
+            with open('cookies.json', 'w') as f:
+                f.write(jsonCookies)
 
-        # 存于本地
-        with open('cookies.json', 'w') as f:
-            f.write(jsonCookies)
-        driver.quit()
+
+
 
 
 
