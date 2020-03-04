@@ -53,6 +53,7 @@ class Ui_JD(object):
         self.usernameEdit.setObjectName("usernameEdit")
         self.usericonLabel2 = QtWidgets.QLabel(JD)
         self.usericonLabel2.setGeometry(QtCore.QRect(150, 40, 61, 61))
+        self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/头像.png);")
         self.usericonLabel2.setText("")
         self.usericonLabel2.setObjectName("usericonLabel2")
         self.usericonLabel = QtWidgets.QLabel(JD)
@@ -152,3 +153,4 @@ class Ui_JD(object):
         self.checklogbtn.setText(_translate("JD", "我已扫码，检查是否登陆"))
         self.showQRbtn.setText(_translate("JD", "显示二维码"))
         self.label.setText(_translate("JD", "terminal"))
+import QR_rc

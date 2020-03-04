@@ -142,6 +142,9 @@
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/头像/qr/头像.png);</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -376,6 +379,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="QR.qrc"/>
+ </resources>
  <connections/>
 </ui>

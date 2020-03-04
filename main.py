@@ -72,6 +72,7 @@ class EmittingStr(QtCore.QObject):
 # 界面类
 class JD_ui(QWidget,Ui_JD):
     def __init__(self):
+        self.username = ''
         super(QWidget, self).__init__()
         self.setupUi(self)
         sys.stdout = EmittingStr(textWritten=self.outputWritten)
@@ -125,7 +126,7 @@ class JD_ui(QWidget,Ui_JD):
         # 打开保存的二维码
         os.system('start ./qr/show.png')
         self.outputWritten('请扫描二维码')
-        self.checklog()
+
 
 
     # 检测是否登录
@@ -136,6 +137,7 @@ class JD_ui(QWidget,Ui_JD):
                 self.outputWritten('请注意：二维码未扫描！请扫二维码登录')
             else:
                 self.outputWritten('登录成功！！！')
+
         except BaseException:
             self.outputWritten('未检测到登录信息，请重试！！！')
         else:
@@ -146,6 +148,17 @@ class JD_ui(QWidget,Ui_JD):
             # 存于本地
             with open('cookies.json', 'w') as f:
                 f.write(jsonCookies)
+            self.outputWritten(self.driver.title)
+            self.driver.find_element_by_class_name('nickname').click()
+
+            self.username = self.driver.find_element_by_class_name('user-name').text
+            self.usernameEdit.setText(self.username)
+            # usericon = self.driver.find_element_by_class_name('lrc-image  img-loaded')
+            # iconpath = './qr/usericon.png'
+            # usericon.screenshot(iconpath)
+            # Usericon = Image.open(iconpath)
+            # Usericon.save(iconpath)
+            # self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/usericon.png);")
 
 
 

@@ -2,4 +2,7 @@
   <qresource prefix="QRcode">
     <file>qr/show.png</file>
   </qresource>
+  <qresource prefix="头像">
+    <file>qr/头像.png</file>
+  </qresource>
 </RCC>
