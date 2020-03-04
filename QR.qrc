@@ -3,6 +3,7 @@
     <file>qr/show.png</file>
   </qresource>
   <qresource prefix="头像">
+    <file>qr/icon.png</file>
     <file>qr/头像.png</file>
   </qresource>
 </RCC>

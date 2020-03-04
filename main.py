@@ -97,6 +97,7 @@ class JD_ui(QWidget,Ui_JD):
         self.LoginBtn.clicked.connect(self.QRlogin)
         self.checklogbtn.clicked.connect(self.checklog)
         self.showQRbtn.clicked.connect(self.showQRcode)
+        self.f5btn.clicked.connect(self.getInfo)
 
     def showQRcode(self):
         os.system('start ./qr/show.png')
@@ -125,8 +126,24 @@ class JD_ui(QWidget,Ui_JD):
 
         # 打开保存的二维码
         os.system('start ./qr/show.png')
-        self.outputWritten('请扫描二维码')
+        self.outputWritten("请扫码登录！！！")
 
+    # 获取用户信息
+    def getInfo(self):
+        self.username = self.driver.find_element_by_class_name('nickname').text
+        self.usernameEdit.setText(self.username)
+        self.driver.get('https://i.jd.com/user/userinfo/showImg.html')
+        self.outputWritten(self.driver.title)
+        try:
+            img = self.driver.find_element_by_class_name('img-s')
+            img.screenshot('./qr/icon.png')
+            Icon = Image.open('./qr/icon.png')
+            Icon.save('./qr/icon.png')
+        except BaseException as e:
+            self.outputWritten('未知错误')
+            self.outputWritten(f'{e}')
+        else:
+            self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/icon.png);")
 
 
     # 检测是否登录
@@ -148,17 +165,15 @@ class JD_ui(QWidget,Ui_JD):
             # 存于本地
             with open('cookies.json', 'w') as f:
                 f.write(jsonCookies)
-            self.outputWritten(self.driver.title)
-            self.driver.find_element_by_class_name('nickname').click()
 
-            self.username = self.driver.find_element_by_class_name('user-name').text
-            self.usernameEdit.setText(self.username)
-            # usericon = self.driver.find_element_by_class_name('lrc-image  img-loaded')
-            # iconpath = './qr/usericon.png'
-            # usericon.screenshot(iconpath)
-            # Usericon = Image.open(iconpath)
-            # Usericon.save(iconpath)
-            # self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/usericon.png);")
+
+
+
+
+
+    def getlocalcookies(self):
+        pass
+
 
 
 
