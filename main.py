@@ -28,6 +28,7 @@ import sys
 import os
 import datetime
 from PyQt5 import Qt, QtGui
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QDateTime, QTimer
 from PyQt5 import QtCore
 from PyQt5.Qt import QThread
@@ -73,6 +74,7 @@ class EmittingStr(QtCore.QObject):
 class JD_ui(QWidget,Ui_JD):
     def __init__(self):
         self.username = ''
+        self.logflag = False
         super(QWidget, self).__init__()
         self.setupUi(self)
         sys.stdout = EmittingStr(textWritten=self.outputWritten)
@@ -98,6 +100,7 @@ class JD_ui(QWidget,Ui_JD):
         self.checklogbtn.clicked.connect(self.checklog)
         self.showQRbtn.clicked.connect(self.showQRcode)
         self.f5btn.clicked.connect(self.getInfo)
+        self.addcartbtn.clicked.connect(self.getcartInfo)
 
     def showQRcode(self):
         os.system('start ./qr/show.png')
@@ -110,14 +113,15 @@ class JD_ui(QWidget,Ui_JD):
         # driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
 
         self.outputWritten('FireFox内核运行中...')
-
+        QApplication.processEvents()
         # 无头浏览器模式
         self.driver = headless_firefox('https://passport.jd.com/uc/login')
         self.outputWritten('京东-欢迎登录')
+        QApplication.processEvents()
         log_url = self.driver.current_url
         img = self.driver.find_element_by_class_name('qrcode-img')
         self.outputWritten('二维码跳转中...')
-
+        QApplication.processEvents()
         # 保存二维码
         path = './qr/show.png'
         img.screenshot(path)
@@ -128,22 +132,39 @@ class JD_ui(QWidget,Ui_JD):
         os.system('start ./qr/show.png')
         self.outputWritten("请扫码登录！！！")
 
+
     # 获取用户信息
     def getInfo(self):
-        self.username = self.driver.find_element_by_class_name('nickname').text
-        self.usernameEdit.setText(self.username)
-        self.driver.get('https://i.jd.com/user/userinfo/showImg.html')
-        self.outputWritten(self.driver.title)
         try:
-            img = self.driver.find_element_by_class_name('img-s')
-            img.screenshot('./qr/icon.png')
-            Icon = Image.open('./qr/icon.png')
-            Icon.save('./qr/icon.png')
-        except BaseException as e:
-            self.outputWritten('未知错误')
-            self.outputWritten(f'{e}')
+            self.username = self.driver.find_element_by_class_name('nickname').text
+            self.usernameEdit.setText(self.username)
+            self.driver.get('https://i.jd.com/user/userinfo/showImg.html')
+            self.outputWritten(self.driver.title)
+        except BaseException :
+            self.outputWritten("获取登录信息失败，请重新登录")
         else:
-            self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/icon.png);")
+            try:
+                img = self.driver.find_element_by_class_name('img-s')
+                img.screenshot('./qr/icon.png')
+                Icon = Image.open('./qr/icon.png')
+                Icon.save('./qr/icon.png')
+            except BaseException as e:
+                self.outputWritten('未知错误:'+f'{e}')
+            else:
+                self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/icon.png);")
+                QApplication.processEvents()
+
+
+    # 获取购物车信息
+    def getcartInfo(self):
+        try:
+            self.driver.get('https://cart.jd.com/cart.action')
+        except BaseException:
+            self.outputWritten('请求购物车信息失败！请检查是否登录')
+        else:
+            cartnum = self.driver.find_element_by_class_name('number').text
+            self.outputWritten('获取购物车信息成功！')
+            self.cartnumberEdit.setText(cartnum)
 
 
     # 检测是否登录
@@ -156,8 +177,9 @@ class JD_ui(QWidget,Ui_JD):
                 self.outputWritten('登录成功！！！')
 
         except BaseException:
-            self.outputWritten('未检测到登录信息，请重试！！！')
+            self.outputWritten('未检测到登录信息，请重新登录！')
         else:
+            self.logflag == True
             # 保存登录cookies
             cookies = self.driver.get_cookies()
             jsonCookies = json.dumps(cookies)

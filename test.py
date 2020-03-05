@@ -28,31 +28,38 @@ from selenium.webdriver import ChromeOptions
 
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
-driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
 
-print(driver.title)
-
-# 保存主页面句柄
-mainWin = driver.current_window_handle
-
-driver.get('https://i.jd.com/user/userinfo/showImg.html')
-
-
-username = driver.find_element_by_class_name('nickname').text
-img = driver.find_elements_by_css_selector("bigImage")
-imgpath = './qr/icon.png'
-print(type(img))
-img.screenshot(imgpath)
-# Icon = Image.open(imgpath)
-# Icon.save(imgpath)
-# os.system('start ' + imgpath)
+def isElemExist(driver, elem):
+    flag = True
+    try:
+        driver.find_element_by_class_name(elem)
+        return flag
+    except BaseException:
+        flag = False
+        return flag
 
 
 
-print(username)
+if __name__ == '__main__':
+    chrome_options = Options()
+    chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+    driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
+
+    print(driver.title)
+
+    # 保存主页面句柄
+    mainWin = driver.current_window_handle
+    driver.get('https://cart.jd.com/cart.action')
+
+    print(driver.title)
+
+    if isElemExist(driver, 'number'):
+        print('存在')
+        print(driver.find_element_by_class_name('number').text)
+    else:
+        print('不存在')
+
 
 
 
