@@ -170,8 +170,8 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="usericonLabel">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>70</y>
+     <x>60</x>
+     <y>80</y>
      <width>72</width>
      <height>15</height>
     </rect>
@@ -455,12 +455,12 @@ color: rgb(255, 255, 255);</string>
     <string>恢复历史登录</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>290</x>
      <y>100</y>
-     <width>460</width>
+     <width>461</width>
      <height>31</height>
     </rect>
    </property>
@@ -499,32 +499,6 @@ color: rgb(255, 255, 255);</string>
      </spacer>
     </item>
     <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
      <widget class="QPushButton" name="additembtn">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(170, 255, 255);</string>
@@ -533,6 +507,19 @@ color: rgb(255, 255, 255);</string>
        <string>添加进购物车</string>
       </property>
      </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item>
      <widget class="QPushButton" name="searchCartbtn">
@@ -546,7 +533,7 @@ color: rgb(255, 255, 255);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>600</x>
@@ -569,15 +556,11 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="buynumEdit">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(211, 211, 211);</string>
-      </property>
-     </widget>
+     <widget class="QSpinBox" name="spinBox"/>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -609,6 +592,89 @@ color: rgb(255, 255, 255);</string>
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>150</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>下单区</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>170</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>设置查询速度：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="buynumEdit">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>230</y>
+     <width>46</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(211, 211, 211);</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>170</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>170</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="quitlogbtn">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>31</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>timeLabel</zorder>
   <zorder>line_4</zorder>
   <zorder>line</zorder>
@@ -636,16 +702,15 @@ color: rgb(255, 255, 255);</string>
   <zorder>line_17</zorder>
   <zorder>f5btn</zorder>
   <zorder>line_13</zorder>
-  <zorder>label_2</zorder>
-  <zorder>cartnumberEdit</zorder>
-  <zorder>goodsEdit</zorder>
-  <zorder>label_3</zorder>
-  <zorder>searchCartbtn</zorder>
   <zorder>label_4</zorder>
   <zorder>line_9</zorder>
   <zorder>relogbtn</zorder>
-  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
   <zorder>buynumEdit</zorder>
+  <zorder>horizontalSlider</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>quitlogbtn</zorder>
  </widget>
  <resources>
   <include location="QR.qrc"/>
