@@ -6873,3 +6873,51 @@
 2020-03-05  21:23:54 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:58886/session/748f0ac2-2f4d-46fd-8a90-6e5a7be657e6/url {"url": "https://i.jd.com/user/userinfo/showImg.html"}
 2020-03-05  21:23:55 Thu urllib3.connectionpool DEBUG http://127.0.0.1:58886 "POST /session/748f0ac2-2f4d-46fd-8a90-6e5a7be657e6/url HTTP/1.1" 200 14
 2020-03-05  21:23:55 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:28:04 Thu log.conf INFO 正在获取用户信息...
+2020-03-05  21:28:04 Thu log.conf INFO 获取登录信息失败，请重新登录
+2020-03-05  21:31:37 Thu log.conf INFO FireFox内核运行中...
+2020-03-05  21:31:37 Thu log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:48: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-05  21:31:40 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59607/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-05  21:31:40 Thu urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:59607
+2020-03-05  21:31:43 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59607 "POST /session HTTP/1.1" 200 736
+2020-03-05  21:31:43 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:31:43 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59607/session/0be78e4a-45e6-40c0-b007-06eb888d2d5a/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-05  21:31:43 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59607 "POST /session/0be78e4a-45e6-40c0-b007-06eb888d2d5a/url HTTP/1.1" 500 540
+2020-03-05  21:31:43 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:31:43 Thu log.conf INFO 连接超时，请检查网络连接
+2020-03-05  21:34:22 Thu log.conf INFO 正在尝试恢复历史登录信息...
+2020-03-05  21:34:22 Thu log.conf INFO Please wait...
+2020-03-05  21:34:22 Thu log.conf INFO E:/Desktop/python脚本/JD/JD-crawler/main.py:48: DeprecationWarning: use options instead of firefox_options
+  driver = webdriver.Firefox(firefox_options=profile)
+
+2020-03-05  21:34:25 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59800/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-05  21:34:25 Thu urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:59800
+2020-03-05  21:34:28 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59800 "POST /session HTTP/1.1" 200 737
+2020-03-05  21:34:28 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:34:28 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59800/session/2dd7a40b-e7c5-41d5-8ee2-918803cd6efa/url {"url": "https://www.jd.com/"}
+2020-03-05  21:34:28 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59800 "POST /session/2dd7a40b-e7c5-41d5-8ee2-918803cd6efa/url HTTP/1.1" 500 522
+2020-03-05  21:34:28 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:34:28 Thu log.conf INFO 连接超时，请检查网络连接
+2020-03-05  21:34:37 Thu log.conf INFO 请求购物车信息失败！请检查是否登录
+2020-03-05  21:34:41 Thu log.conf INFO 未检测到登录信息，请重新登录！
+2020-03-05  21:34:49 Thu log.conf INFO FireFox内核运行中...
+2020-03-05  21:34:52 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59850/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-05  21:34:52 Thu urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:59850
+2020-03-05  21:34:55 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59850 "POST /session HTTP/1.1" 200 737
+2020-03-05  21:34:55 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:34:55 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59850/session/9af77c31-73e0-4e7c-bcfe-20ddc810bdb6/url {"url": "https://passport.jd.com/uc/login"}
+2020-03-05  21:34:56 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59850 "POST /session/9af77c31-73e0-4e7c-bcfe-20ddc810bdb6/url HTTP/1.1" 500 540
+2020-03-05  21:34:56 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:34:56 Thu log.conf INFO 连接超时，请检查网络连接
+2020-03-05  21:35:02 Thu log.conf INFO 正在尝试恢复历史登录信息...
+2020-03-05  21:35:02 Thu log.conf INFO Please wait...
+2020-03-05  21:35:05 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59889/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"args": ["-headless"]}}}
+2020-03-05  21:35:05 Thu urllib3.connectionpool DEBUG Starting new HTTP connection (1): 127.0.0.1:59889
+2020-03-05  21:35:08 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59889 "POST /session HTTP/1.1" 200 737
+2020-03-05  21:35:08 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:35:08 Thu selenium.webdriver.remote.remote_connection DEBUG POST http://127.0.0.1:59889/session/4ceb843d-611c-4a9a-9b6f-ba51177668aa/url {"url": "https://www.jd.com/"}
+2020-03-05  21:35:08 Thu urllib3.connectionpool DEBUG http://127.0.0.1:59889 "POST /session/4ceb843d-611c-4a9a-9b6f-ba51177668aa/url HTTP/1.1" 500 522
+2020-03-05  21:35:08 Thu selenium.webdriver.remote.remote_connection DEBUG Finished Request
+2020-03-05  21:35:08 Thu log.conf INFO 连接超时，请检查网络连接

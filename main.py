@@ -120,22 +120,26 @@ class JD_ui(QWidget,Ui_JD):
         self.outputWritten('FireFox内核运行中...')
         QApplication.processEvents()
         # 无头浏览器模式
-        self.driver = headless_firefox('https://passport.jd.com/uc/login')
-        self.outputWritten('京东-欢迎登录')
-        QApplication.processEvents()
-        log_url = self.driver.current_url
-        img = self.driver.find_element_by_class_name('qrcode-img')
-        self.outputWritten('二维码跳转中...')
-        QApplication.processEvents()
-        # 保存二维码
-        path = './qr/show.png'
-        img.screenshot(path)
-        QRcode = Image.open(path)
-        QRcode.save(path)
+        try:
+            self.driver = headless_firefox('https://passport.jd.com/uc/login')
+        except BaseException:
+            self.outputWritten('连接超时，请检查网络连接')
+        else:
+            self.outputWritten('京东-欢迎登录')
+            QApplication.processEvents()
+            log_url = self.driver.current_url
+            img = self.driver.find_element_by_class_name('qrcode-img')
+            self.outputWritten('二维码跳转中...')
+            QApplication.processEvents()
+            # 保存二维码
+            path = './qr/show.png'
+            img.screenshot(path)
+            QRcode = Image.open(path)
+            QRcode.save(path)
 
-        # 打开保存的二维码
-        os.system('start ./qr/show.png')
-        self.outputWritten("请扫码登录！！！")
+            # 打开保存的二维码
+            os.system('start ./qr/show.png')
+            self.outputWritten("请扫码登录！！！")
 
 
     # 获取用户信息
@@ -202,20 +206,24 @@ class JD_ui(QWidget,Ui_JD):
             with open("cookies.txt", "w") as f:
                 json.dump(self.cookies, f)
 
-    # 获取本地cookies
+    # 从已保存的cookies中恢复登录
     def relogin(self):
         self.outputWritten('正在尝试恢复历史登录信息...')
         self.outputWritten('Please wait...')
         QApplication.processEvents()
-        self.driver = headless_firefox('https://www.jd.com/')
-        with open('cookies.txt','r') as f:
-            cookies = json.load(f)
-            for cookie in cookies:
-                self.driver.add_cookie(cookie)
-        self.driver.get('https://www.jd.com/')
-        self.username = self.driver.find_element_by_class_name('nickname').text
-        if self.username == 'ylxy123':
-            self.outputWritten("登录成功！！！")
+        try:
+            self.driver = headless_firefox('https://www.jd.com/')
+        except BaseException:
+            self.outputWritten('连接超时，请检查网络连接')
+        else:
+            with open('cookies.txt','r') as f:
+                cookies = json.load(f)
+                for cookie in cookies:
+                    self.driver.add_cookie(cookie)
+            self.driver.get('https://www.jd.com/')
+            self.username = self.driver.find_element_by_class_name('nickname').text
+            if self.username == 'ylxy123':
+                self.outputWritten("登录成功！！！")
 
     # 检测元素是否存在
     def isElemExist(self, elem):
