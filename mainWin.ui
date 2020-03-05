@@ -113,7 +113,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>150</y>
+     <y>170</y>
      <width>91</width>
      <height>28</height>
     </rect>
@@ -129,7 +129,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>110</y>
+     <y>130</y>
      <width>101</width>
      <height>21</height>
     </rect>
@@ -141,9 +141,9 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="usernameEdit">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>110</y>
-     <width>131</width>
+     <x>110</x>
+     <y>130</y>
+     <width>141</width>
      <height>21</height>
     </rect>
    </property>
@@ -155,7 +155,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>40</y>
+     <y>50</y>
      <width>61</width>
      <height>61</height>
     </rect>
@@ -171,9 +171,9 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>80</y>
+     <y>70</y>
      <width>72</width>
-     <height>15</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -213,7 +213,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>150</y>
+     <y>170</y>
      <width>91</width>
      <height>28</height>
     </rect>
@@ -231,7 +231,7 @@ color: rgb(255, 255, 255);</string>
      <x>270</x>
      <y>20</y>
      <width>20</width>
-     <height>261</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="orientation">
@@ -318,7 +318,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>30</y>
+     <y>40</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -331,7 +331,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>90</y>
+     <y>100</y>
      <width>61</width>
      <height>20</height>
     </rect>
@@ -344,7 +344,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>40</y>
+     <y>50</y>
      <width>20</width>
      <height>61</height>
     </rect>
@@ -357,7 +357,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>40</y>
+     <y>50</y>
      <width>20</width>
      <height>61</height>
     </rect>
@@ -395,9 +395,9 @@ color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="f5btn">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>60</y>
-     <width>51</width>
+     <x>210</x>
+     <y>70</y>
+     <width>41</width>
      <height>28</height>
     </rect>
    </property>
@@ -443,9 +443,9 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>190</y>
-     <width>201</width>
-     <height>21</height>
+     <y>300</y>
+     <width>101</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -556,7 +556,7 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item>
-     <widget class="QSpinBox" name="spinBox"/>
+     <widget class="QSpinBox" name="buynumBox"/>
     </item>
    </layout>
   </widget>
@@ -623,19 +623,6 @@ color: rgb(255, 255, 255);</string>
     <string>设置查询速度：</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="buynumEdit">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>230</y>
-     <width>46</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(211, 211, 211);</string>
-   </property>
-  </widget>
   <widget class="QSlider" name="horizontalSlider">
    <property name="geometry">
     <rect>
@@ -662,14 +649,23 @@ color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="quitlogbtn">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>31</width>
-     <height>28</height>
+     <x>170</x>
+     <y>300</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>退出登录</string>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(170, 255, 255);</string>
+   </property>
    <property name="text">
-    <string/>
+    <string>退出登录</string>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>
@@ -685,7 +681,6 @@ color: rgb(255, 255, 255);</string>
   <zorder>usernameLabel</zorder>
   <zorder>usernameEdit</zorder>
   <zorder>usericonLabel2</zorder>
-  <zorder>usericonLabel</zorder>
   <zorder>checklogbtn</zorder>
   <zorder>line_5</zorder>
   <zorder>showQRbtn</zorder>
@@ -707,10 +702,10 @@ color: rgb(255, 255, 255);</string>
   <zorder>relogbtn</zorder>
   <zorder>label_6</zorder>
   <zorder>label_7</zorder>
-  <zorder>buynumEdit</zorder>
   <zorder>horizontalSlider</zorder>
   <zorder>lineEdit</zorder>
   <zorder>quitlogbtn</zorder>
+  <zorder>usericonLabel</zorder>
  </widget>
  <resources>
   <include location="QR.qrc"/>

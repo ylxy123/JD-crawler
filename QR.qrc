@@ -6,4 +6,7 @@
     <file>qr/icon.png</file>
     <file>qr/头像.png</file>
   </qresource>
+  <qresource prefix="其他">
+    <file>qr/quit.png</file>
+  </qresource>
 </RCC>

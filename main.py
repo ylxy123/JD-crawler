@@ -53,7 +53,7 @@ def log_init():
     logger = logging.getLogger('log.conf')
     logging.basicConfig(level=logging.DEBUG,
                         format="%(asctime)s %(name)s %(levelname)s %(message)s",
-                        datefmt='%Y-%m-%d  %H:%M:%S %a', # 注意月份和天数不要搞乱了，这里的格式化符与time模块相同
+                        datefmt='%Y-%m-%d  %H:%M:%S %a', # 这里的格式化符与time模块相同
                         filename='local.log'
                         )
     return logger
@@ -94,7 +94,8 @@ class JD_ui(QWidget,Ui_JD):
         self.timeLabel.setText(timetext)
 
     def dataInit(self):
-        self.buynumEdit.setText('1')
+        self.buynumBox.setMinimum(1)
+        self.buynumBox.setMaximum(5)
         self.goodsEdit.setText('  11~12位纯数字')
 
 
@@ -183,7 +184,7 @@ class JD_ui(QWidget,Ui_JD):
             except BaseException as e:
                 self.outputWritten(f'{e}')
             else:
-                self.outputWritten('获取购物车信息成功，当前购物车数量：%c'%cartnum)
+                self.outputWritten('获取购物车信息成功，当前购物车商品数量：%c'%cartnum)
                 self.cartnumberEdit.setText(cartnum)
 
 
@@ -194,7 +195,7 @@ class JD_ui(QWidget,Ui_JD):
             if cur_url == log_url:
                 self.outputWritten('请注意：二维码未扫描！请扫二维码登录')
             else:
-                self.outputWritten('登录成功！！！')
+                self.outputWritten('您已登录！')
         except BaseException:
             self.outputWritten('未检测到登录信息，请重新登录！')
         else:
@@ -239,6 +240,8 @@ class JD_ui(QWidget,Ui_JD):
 
     # 将商品添加进购物车
     def addtocart(self):
+        self.outputWritten('正在将商品添加至购物车，请稍后...')
+        QApplication.processEvents()
         itemcode = self.goodsEdit.text()
         item_url = 'https://item.jd.com/' + itemcode + '.html'
         try:
@@ -246,10 +249,14 @@ class JD_ui(QWidget,Ui_JD):
             if itemcode == '' or not re.match(r'\d{6,13}', itemcode):
                 self.outputWritten('商品码为空或非纯数字，请填写正确的商品码！')
                 return
-            item_num = self.buynumEdit.text()
-            self.driver.find_element_by_css_selector('input#buy-num').send_keys(item_num)
+            item_num = str(self.buynumBox.text())
+            # self.driver.find_element_by_css_selector('input#buy-num').send_keys(item_num)
             addurl = self.driver.find_element_by_css_selector('a#InitCartUrl').get_attribute('href')
-            self.driver.get(addurl)
+            m = re.match(r'(.*&pcount=)(\d{1,2})(.*)', addurl)
+            a = m.group(1)
+            c = m.group(3)
+            addurl1 = a + item_num + c
+            self.driver.get(addurl1)
         except BaseException :
             self.outputWritten('添加失败，请检查是否登录')
         else:

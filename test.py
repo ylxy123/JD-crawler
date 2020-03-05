@@ -13,6 +13,7 @@ import json
 import pickle
 import time
 import os
+import re
 from PIL import Image
 from selenium.webdriver import Firefox
 from selenium.webdriver import FirefoxOptions
@@ -41,24 +42,34 @@ def isElemExist(driver, elem):
 
 
 if __name__ == '__main__':
-    chrome_options = Options()
-    chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-    chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
-    driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
+    # chrome_options = Options()
+    # chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    # chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+    # driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
+    #
+    # print(driver.title)
+    #
+    # # 保存主页面句柄
+    # mainWin = driver.current_window_handle
+    # driver.get('https://cart.jd.com/cart.action')
+    #
+    # print(driver.title)
+    #
+    # if isElemExist(driver, 'number'):
+    #     print('存在')
+    #     print(driver.find_element_by_class_name('number').text)
+    # else:
+    #     print('不存在')
 
-    print(driver.title)
+    a = 'https://cart.jd.com/gate.action?pid=29008420305&pcount=1&ptype=1'
+    m = re.match(r'(.*&pcount=)(\d{1,2})(.*)', a)
+    b = m.group(1)
+    c = '5'
+    d = m.group(3)
+    print(b+'\n'+c+'\n'+d)
 
-    # 保存主页面句柄
-    mainWin = driver.current_window_handle
-    driver.get('https://cart.jd.com/cart.action')
 
-    print(driver.title)
 
-    if isElemExist(driver, 'number'):
-        print('存在')
-        print(driver.find_element_by_class_name('number').text)
-    else:
-        print('不存在')
 
 
 
