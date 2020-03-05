@@ -13,11 +13,8 @@ from selenium.webdriver import Firefox
 from selenium.webdriver import FirefoxOptions
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-import pyautogui as pag
 import logging
 import json
 from PIL import Image
@@ -31,8 +28,8 @@ from PyQt5 import Qt, QtGui
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QDateTime, QTimer
 from PyQt5 import QtCore
-from PyQt5.Qt import QThread
-from scanQR import Ui_Dialog
+# from PyQt5.Qt import QThread
+
 
 log_url = 'https://passport.jd.com/uc/login'
 cur_url = ''
