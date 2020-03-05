@@ -408,38 +408,6 @@ color: rgb(255, 255, 255);</string>
     <string>刷新</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="goodsEdit">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>60</y>
-     <width>291</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(211, 211, 211);</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>60</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>黑体</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>待添加的商品码：</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
@@ -490,9 +458,9 @@ color: rgb(255, 255, 255);</string>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>290</x>
      <y>100</y>
-     <width>441</width>
+     <width>460</width>
      <height>31</height>
     </rect>
    </property>
@@ -557,12 +525,85 @@ color: rgb(255, 255, 255);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="addcartbtn">
+     <widget class="QPushButton" name="additembtn">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(170, 255, 255);</string>
       </property>
       <property name="text">
-       <string>添加并查询购物车数量</string>
+       <string>添加进购物车</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="searchCartbtn">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(170, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>查询购物车数量</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>60</y>
+     <width>136</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>购买数量:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="buynumEdit">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 211, 211);</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>60</y>
+     <width>291</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>待添加的商品码：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="goodsEdit">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 211, 211);</string>
       </property>
      </widget>
     </item>
@@ -599,10 +640,12 @@ color: rgb(255, 255, 255);</string>
   <zorder>cartnumberEdit</zorder>
   <zorder>goodsEdit</zorder>
   <zorder>label_3</zorder>
-  <zorder>addcartbtn</zorder>
+  <zorder>searchCartbtn</zorder>
   <zorder>label_4</zorder>
   <zorder>line_9</zorder>
   <zorder>relogbtn</zorder>
+  <zorder>label_5</zorder>
+  <zorder>buynumEdit</zorder>
  </widget>
  <resources>
   <include location="QR.qrc"/>
