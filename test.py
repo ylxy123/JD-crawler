@@ -61,13 +61,7 @@ if __name__ == '__main__':
     # else:
     #     print('不存在')
 
-    a = 'https://cart.jd.com/gate.action?pid=29008420305&pcount=1&ptype=1'
-    m = re.match(r'(.*&pcount=)(\d{1,2})(.*)', a)
-    b = m.group(1)
-    c = '5'
-    d = m.group(3)
-    print(b+'\n'+c+'\n'+d)
-
+    print(os.path.isfile('cookies.txt'))
 
 
 

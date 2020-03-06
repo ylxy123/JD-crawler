@@ -305,7 +305,7 @@ class Ui_JD(object):
         self.additembtn.setText(_translate("JD", "添加进购物车"))
         self.searchCartbtn.setText(_translate("JD", "查询购物车数量"))
         self.label_5.setText(_translate("JD", "购买数量:"))
-        self.label_3.setText(_translate("JD", "待添加的商品码："))
+        self.label_3.setText(_translate("JD", "待添加的商品sku码："))
         self.label_6.setText(_translate("JD", "下单区"))
         self.label_7.setText(_translate("JD", "设置查询速度："))
         self.quitlogbtn.setToolTip(_translate("JD", "退出登录"))

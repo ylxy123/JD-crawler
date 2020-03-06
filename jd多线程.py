@@ -1,6 +1,6 @@
-# @Time : 2020/2/29 15:06
+# @Time : 2020/3/6 16:54
 # @Author : YLXY
-# @File : main.py
+# @File : jd多线程.py
 # -*- coding: utf-8 -*-
 
 import re
@@ -29,12 +29,12 @@ from PyQt5 import Qt, QtGui
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QDateTime, QTimer
 from PyQt5 import QtCore
-# from PyQt5.Qt import QThread
+from PyQt5.Qt import QThread
 
+global driver, log_url, cur_url
 
 log_url = 'https://passport.jd.com/uc/login'
 cur_url = ''
-
 
 def headless_chrome(url):
     chrome_options = Options()
@@ -68,11 +68,11 @@ class EmittingStr(QtCore.QObject):
         self.textWritten.emit(str(text))
 
 
+
 # 界面类
 class JD_ui(QWidget,Ui_JD):
     def __init__(self):
         self.username = ''
-        self.loadUserName()
         self.logflag = False
         self.cookies = ''
         self.recookie = {}
@@ -103,6 +103,7 @@ class JD_ui(QWidget,Ui_JD):
         # self.goodsEdit.setText('  11~12位纯数字')
 
     def connecter(self):
+
         self.LoginBtn.clicked.connect(self.QRlogin)
         self.checklogbtn.clicked.connect(self.checklog)
         self.showQRbtn.clicked.connect(self.showQRcode)
@@ -112,20 +113,9 @@ class JD_ui(QWidget,Ui_JD):
         self.relogbtn.clicked.connect(self.relogin)
         self.quitlogbtn.clicked.connect(self.quitlog)
 
-    def loadUserName(self):
-        path = './qr/username.txt'
-        with open(path, 'r') as f:
-            self.username = f.read()
-
-    def saveUserName(self, username):
-        path = './qr/username.txt'
-        with open(path, 'w') as f:
-            f.write(username)
-
     def showQRcode(self):
         os.system('start ./qr/show.png')
 
-    # 二维码登录
     def QRlogin(self):
         # 接管已打开浏览器
         # chrome_options = Options()
@@ -157,6 +147,7 @@ class JD_ui(QWidget,Ui_JD):
             os.system('start ./qr/show.png')
             self.outputWritten("请扫码登录！！！")
 
+
     # 获取用户信息
     def getInfo(self):
         self.outputWritten('正在获取用户信息...')
@@ -164,7 +155,6 @@ class JD_ui(QWidget,Ui_JD):
         try:
             self.username = self.driver.find_element_by_class_name('nickname').text
             self.usernameEdit.setText(self.username)
-            self.saveUserName(self.username)
             self.driver.get('https://i.jd.com/user/userinfo/showImg.html')
         except BaseException :
             self.outputWritten("获取登录信息失败，请重新登录")
@@ -178,8 +168,9 @@ class JD_ui(QWidget,Ui_JD):
             except BaseException as e:
                 self.outputWritten('未知错误:'+f'{e}')
             else:
-                self.setLabelIcon()
+                self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/icon.png);")
                 self.outputWritten('信息获取成功！')
+
 
     # 获取购物车信息
     def getcartInfo(self):
@@ -203,13 +194,15 @@ class JD_ui(QWidget,Ui_JD):
                 self.outputWritten('获取购物车信息成功，当前购物车商品数量：%c'%cartnum)
                 self.cartnumberEdit.setText(cartnum)
 
+
     # 检测是否登录
     def checklog(self):
         try:
-            if self.logflag:
-                self.outputWritten('您已登录！')
-            else:
+            cur_url = self.driver.current_url
+            if self.logflag == False or cur_url == log_url:
                 self.outputWritten('请注意：二维码未扫描！请扫二维码登录')
+            else:
+                self.outputWritten('您已登录！')
         except BaseException:
             self.outputWritten('未检测到登录信息，请重新登录！')
         else:
@@ -221,14 +214,14 @@ class JD_ui(QWidget,Ui_JD):
             with open("cookies.txt", "w") as f:
                 json.dump(self.cookies, f)
 
-    # 恢复历史登录
+    # 从已保存的cookies中恢复登录
     def relogin(self):
-        if os.path.isfile('cookies.txt') == False:
-            self.outputWritten('历史登录信息为空，请扫码登录')
-            return
         self.outputWritten('正在尝试恢复历史登录信息...')
         self.outputWritten('Please wait...')
         QApplication.processEvents()
+        if os.path.isfile('cookies.txt') == False:
+            self.outputWritten('历史登录信息为空，请扫码登录')
+            self.usericonLabel2.setStyleSheet("image: url(:/头像/qr/头像.png);")
         try:
             self.driver = headless_firefox('https://www.jd.com/')
         except BaseException:
@@ -239,15 +232,14 @@ class JD_ui(QWidget,Ui_JD):
                 for cookie in cookies:
                     self.driver.add_cookie(cookie)
             self.driver.get('https://www.jd.com/')
-            username = self.driver.find_element_by_class_name('nickname').text
-            if username == self.username:
+            self.username = self.driver.find_element_by_class_name('nickname').text
+            if self.username == 'ylxy123':
                 self.outputWritten("登录成功！！！")
             self.logflag = True
             # 更新cookies
             self.cookies = self.driver.get_cookies()
             with open("cookies.txt", "w") as f:
                 json.dump(self.cookies, f)
-            self.getInfo()
 
     # 检测元素是否存在
     def isElemExist(self, classelem):
@@ -258,6 +250,8 @@ class JD_ui(QWidget,Ui_JD):
         except BaseException:
             flag = False
             return flag
+
+
 
     # 将商品添加进购物车
     def addtocart(self):
@@ -272,23 +266,25 @@ class JD_ui(QWidget,Ui_JD):
                 return
             item_num = str(self.buynumBox.text())
             item_name = self.driver.find_element_by_class_name('sku-name').text
-            if self.isElemExist('activity-banner'):
-                self.outputWritten('待添加预售商品名：%s  数量：%s'%(item_name,item_num))
-            else:
-                self.outputWritten('待添加商品名：%s  数量：%s' % (item_name, item_num))
+            self.outputWritten('待添加商品名：%s  数量：%s'%(item_name,item_num))
             self.outputWritten('正在添加进购物车...')
             # self.driver.find_element_by_css_selector('input#buy-num').send_keys(item_num)
-            addurl = self.driver.find_element_by_css_selector('a#InitCartUrl').get_attribute('href')
-            m = re.match(r'(.*pcount=)(\d{1,2})(.*)', addurl)
-            a = m.group(1)
-            c = m.group(3)
-            addurl1 = a + item_num + c
-            try:
-                self.driver.get(addurl1)
+            if self.driver.find_element_by_class_name('activity-type').text != '预约抢购' or not self.isElemExist('activity'):
+                addurl = self.driver.find_element_by_css_selector('a#InitCartUrl').get_attribute('href')
+                m = re.match(r'(.*&pcount=)(\d{1,2})(.*)', addurl)
+                a = m.group(1)
+                c = m.group(3)
+                addurl1 = a + item_num + c
+                with open('cookies.txt', 'r') as f:
+                    cookies = json.load(f)
+                    for cookie in cookies:
+                        self.recookie[cookie['name']] = cookie['value']
+                self.sess = requests.session()
+                self.sess.get(addurl1)
                 self.outputWritten('添加购物车成功！')
                 QApplication.processEvents()
-            except BaseException:
-                self.outputWritten('添加失败')
+            else:
+                self.outputWritten('不支持添加预售商品')
         except BaseException :
             if not self.logflag:
                 self.outputWritten('添加失败，请检查是否登录')
@@ -309,26 +305,14 @@ class JD_ui(QWidget,Ui_JD):
                 os.remove(cookie_path)
                 os.remove(img_path)
             self.outputWritten('已退出登录')
-            self.setLabelIconback()
             return
         try:
             self.driver.quit()
         except BaseException:
             self.outputWritten('您未登录')
+            self.usericonLabel2.setStyleSheet()
         else:
             self.outputWritten('已退出登录')
-            self.usernameEdit.setText(' ')
-            self.setLabelIconback()
-
-    def setLabelIcon(self):
-        pixmap = QPixmap('./qr/icon.png')
-        self.usericonLabel2.setPixmap(pixmap)
-        self.usericonLabel2.setScaledContents(True)
-
-    def setLabelIconback(self):
-        pixmap = QPixmap('./qr/头像.png')
-        self.usericonLabel2.setPixmap(pixmap)
-        self.usericonLabel2.setScaledContents(True)
 
 
     # GUI terminal
@@ -352,10 +336,3 @@ def jd_main():
 
 if __name__ == '__main__':
     jd_main()
-
-
-
-
-
-
-

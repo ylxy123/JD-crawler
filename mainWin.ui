@@ -579,7 +579,7 @@ color: rgb(255, 255, 255);</string>
        </font>
       </property>
       <property name="text">
-       <string>待添加的商品码：</string>
+       <string>待添加的商品sku码：</string>
       </property>
      </widget>
     </item>
